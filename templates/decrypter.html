@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link href="static/css/bootstrap.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Crypter Site | Decrypter </title>
+</head>
+<style>
+.content {
+  max-width: 960px;
+  margin: auto;
+}
+</style>
+<body>
+<div class="content">
+  <h1>Crypter Site | Decrypter </h1>
+  <p>You can use this site to decrypt a number that you previously <a href="encrypt">encrypted</a>.</p>
+  <a href="/" class="btn btn-secondary" role="button">Home</a>
+  <br>
+  <br>
+  <form method="post">
+    <div class="form-group">
+      <label for="valueToEncrypt">Value to Decrypt</label>
+      <input type="text" class="form-control" id="valueToDecrypt" name="value_to_decrypt", aria-describedby="encryptHelp" placeholder="Encrypted Value to decrypt">
+      <small id="encryptHelp" class="form-text text-muted">Enter your encrypted value.</small>
+    </div>
+    <div class="form-group">
+      <label for="encryptionKey">Encryption Key</label>
+      <input type="text" class="form-control" id="decryptionKey", name="decryption_key" placeholder="Encryption key">
+    </div>
+    <button type="submit" class="btn btn-success">Decrypt</button>
+    <br>
+    {% if alert_code == True %}
+      {% include 'decryption_value_error.html' %}
+    {% endif %}
+    <br>
+    <div class="form-group">
+      <label for="encryptedValue">Decrypted Value</label>
+      <input class="form-control" type="text" id="decryptedValue", name="decrypted_value" placeholder="Decrypted value", value={{decrypted_value}}>
+    </div>
+  </form>
+  <br>
+  <br>
+  <p>{{value_count}} values have been decrypted.</p>
+</div>
+</body>
+<footer>
+</footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="static/js/bootstrap.js"></script>
+</html>
